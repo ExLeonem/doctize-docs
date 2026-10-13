@@ -1,0 +1,99 @@
+/* Doctize theme "contrast": high contrast for accessibility: black on white, underlined links, strong focus rings.
+ *
+ * Loaded after the built-in theme.css, so it only sets what differs. The dark palette is repeated for the
+ * toggle ([data-theme="dark"]) and for readers who never used it (prefers-color-scheme), like in theme.css.
+ */
+
+:root {
+  --accent: #0033cc;
+  --accent-contrast: #ffffff;
+  --bg: #ffffff;
+  --bg-subtle: #f0f0f0;
+  --bg-raised: #ffffff;
+  --text: #000000;
+  --text-muted: #2b2b2b;
+  --border: #595959;
+  --code-bg: #f2f2f2;
+  --note: #0033cc;
+  --tip: #006100;
+  --important: #5b00b5;
+  --warning: #7a3d00;
+  --caution: #b00000;
+  --tok-comment: #3d3d3d;
+  --tok-string: #005a00;
+  --tok-keyword: #6a00a8;
+  --tok-number: #8a3a00;
+  --tok-type: #00449e;
+  --tok-function: #0033cc;
+  --tok-annotation: #6b4f00;
+  --tok-property: #00449e;
+  --shadow: 0 0 0 2px #000000;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #ffd60a;
+  --accent-contrast: #000000;
+  --bg: #000000;
+  --bg-subtle: #121212;
+  --bg-raised: #0a0a0a;
+  --text: #ffffff;
+  --text-muted: #e0e0e0;
+  --border: #bdbdbd;
+  --code-bg: #0d0d0d;
+  --note: #8ab4ff;
+  --tip: #7dff9a;
+  --important: #e0b3ff;
+  --warning: #ffc266;
+  --caution: #ff8c8c;
+  --shadow: 0 0 0 2px #ffffff;
+  --tok-comment: #c8c8c8;
+  --tok-string: #9dff9d;
+  --tok-keyword: #ffb3ff;
+  --tok-number: #ffc58a;
+  --tok-type: #a8d1ff;
+  --tok-function: #ffe066;
+  --tok-annotation: #ffe066;
+  --tok-property: #a8d1ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --accent: #ffd60a;
+    --accent-contrast: #000000;
+    --bg: #000000;
+    --bg-subtle: #121212;
+    --bg-raised: #0a0a0a;
+    --text: #ffffff;
+    --text-muted: #e0e0e0;
+    --border: #bdbdbd;
+    --code-bg: #0d0d0d;
+    --note: #8ab4ff;
+    --tip: #7dff9a;
+    --important: #e0b3ff;
+    --warning: #ffc266;
+    --caution: #ff8c8c;
+    --shadow: 0 0 0 2px #ffffff;
+    --tok-comment: #c8c8c8;
+    --tok-string: #9dff9d;
+    --tok-keyword: #ffb3ff;
+    --tok-number: #ffc58a;
+    --tok-type: #a8d1ff;
+    --tok-function: #ffe066;
+    --tok-annotation: #ffe066;
+    --tok-property: #a8d1ff;
+  }
+}
+
+body { font-size: 17px; }
+
+/* Links in text are recognisable without colour, and keyboard focus cannot be missed. */
+.prose a, .footer a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sidebar li a.is-current { color: var(--accent-contrast); background: var(--accent); }
+.search-trigger, .code-block, .card, table, th, td { border-color: var(--border); border-width: 1.5px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

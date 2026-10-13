@@ -1,0 +1,100 @@
+/* Doctize theme "terminal": monospace everywhere, square corners and a green prompt.
+ *
+ * Loaded after the built-in theme.css, so it only sets what differs. The dark palette is repeated for the
+ * toggle ([data-theme="dark"]) and for readers who never used it (prefers-color-scheme), like in theme.css.
+ */
+
+:root {
+  --accent: #007a3d;
+  --accent-contrast: #ffffff;
+  --bg: #f7f7f2;
+  --bg-subtle: #eeeee6;
+  --bg-raised: #fbfbf7;
+  --text: #1c1f1a;
+  --text-muted: #5a6154;
+  --border: #d3d4c8;
+  --code-bg: #efefe7;
+  --tok-comment: #7a8072;
+  --tok-string: #7a5c00;
+  --tok-keyword: #007a3d;
+  --tok-number: #a13d00;
+  --tok-type: #1f5fa8;
+  --tok-function: #6b2fa3;
+  --tok-annotation: #a13d00;
+  --tok-property: #1f5fa8;
+  --font-sans: var(--font-mono);
+  --radius: 0px;
+  --content-width: 820px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #3ddc84;
+  --accent-contrast: #0b0e0b;
+  --bg: #0b0e0b;
+  --bg-subtle: #111511;
+  --bg-raised: #141914;
+  --text: #cfe8cf;
+  --text-muted: #86a386;
+  --border: #223022;
+  --code-bg: #0e120e;
+  --note: #66d9ef;
+  --tip: #3ddc84;
+  --important: #ae81ff;
+  --warning: #fd971f;
+  --caution: #f92672;
+  --shadow: 0 0 0 1px #3ddc84;
+  --tok-comment: #5f7a5f;
+  --tok-string: #e6db74;
+  --tok-keyword: #3ddc84;
+  --tok-number: #fd971f;
+  --tok-type: #66d9ef;
+  --tok-function: #a6e22e;
+  --tok-annotation: #fd971f;
+  --tok-property: #66d9ef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --accent: #3ddc84;
+    --accent-contrast: #0b0e0b;
+    --bg: #0b0e0b;
+    --bg-subtle: #111511;
+    --bg-raised: #141914;
+    --text: #cfe8cf;
+    --text-muted: #86a386;
+    --border: #223022;
+    --code-bg: #0e120e;
+    --note: #66d9ef;
+    --tip: #3ddc84;
+    --important: #ae81ff;
+    --warning: #fd971f;
+    --caution: #f92672;
+    --shadow: 0 0 0 1px #3ddc84;
+    --tok-comment: #5f7a5f;
+    --tok-string: #e6db74;
+    --tok-keyword: #3ddc84;
+    --tok-number: #fd971f;
+    --tok-type: #66d9ef;
+    --tok-function: #a6e22e;
+    --tok-annotation: #fd971f;
+    --tok-property: #66d9ef;
+  }
+}
+
+body { font-size: 14.5px; line-height: 1.7; }
+
+.brand-name::before { content: "~/"; color: var(--text-muted); }
+.brand-name::after { content: "_"; color: var(--accent); animation: doctize-terminal-cursor 1.1s steps(1) infinite; }
+@keyframes doctize-terminal-cursor { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-name::after { animation: none; }
+}
+
+.hero h1, .doc-header h1 { font-size: 2.2rem; letter-spacing: 0; }
+.hero h1::before, .doc-header h1::before { content: "$ "; color: var(--accent); }
+.prose h2::before { content: "## "; color: var(--text-muted); font-weight: 400; }
+.prose h3::before { content: "### "; color: var(--text-muted); font-weight: 400; }
+/* Square corners everywhere, including those the built-in theme does not take from --radius. */
+*, *::before, *::after { border-radius: 0 !important; }

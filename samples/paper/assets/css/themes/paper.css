@@ -1,0 +1,99 @@
+/* Doctize theme "paper": a serif reading theme with a narrow text column, like a printed book.
+ *
+ * Loaded after the built-in theme.css, so it only sets what differs. The dark palette is repeated for the
+ * toggle ([data-theme="dark"]) and for readers who never used it (prefers-color-scheme), like in theme.css.
+ */
+
+:root {
+  --accent: #a2401a;
+  --accent-contrast: #ffffff;
+  --bg: #fdfaf3;
+  --bg-subtle: #f5efe2;
+  --bg-raised: #fffdf8;
+  --text: #2d2720;
+  --text-muted: #6b6155;
+  --border: #e6dccb;
+  --code-bg: #f6f0e3;
+  --tok-comment: #8a7f70;
+  --tok-string: #5f7a2e;
+  --tok-keyword: #8e3b5a;
+  --tok-number: #a2401a;
+  --tok-type: #2f5d7c;
+  --tok-function: #3f5f9a;
+  --tok-annotation: #946200;
+  --tok-property: #2f5d7c;
+  --font-sans: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, "Bitstream Charter", Georgia, serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --content-width: 700px;
+  --radius: 3px;
+  --shadow: 0 8px 30px rgba(60, 40, 10, 0.15);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #f0a674;
+  --accent-contrast: #1b1813;
+  --bg: #1b1813;
+  --bg-subtle: #221e18;
+  --bg-raised: #29241d;
+  --text: #ece3d3;
+  --text-muted: #b0a491;
+  --border: #3a332a;
+  --code-bg: #211d17;
+  --note: #8fbcd4;
+  --tip: #c3d68f;
+  --important: #d4a5c9;
+  --warning: #e6c07b;
+  --caution: #f08a7a;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --tok-comment: #8f8574;
+  --tok-string: #c3d68f;
+  --tok-keyword: #e8a0bf;
+  --tok-number: #f0a674;
+  --tok-type: #8fbcd4;
+  --tok-function: #a9c1ef;
+  --tok-annotation: #e6c07b;
+  --tok-property: #8fbcd4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --accent: #f0a674;
+    --accent-contrast: #1b1813;
+    --bg: #1b1813;
+    --bg-subtle: #221e18;
+    --bg-raised: #29241d;
+    --text: #ece3d3;
+    --text-muted: #b0a491;
+    --border: #3a332a;
+    --code-bg: #211d17;
+    --note: #8fbcd4;
+    --tip: #c3d68f;
+    --important: #d4a5c9;
+    --warning: #e6c07b;
+    --caution: #f08a7a;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    --tok-comment: #8f8574;
+    --tok-string: #c3d68f;
+    --tok-keyword: #e8a0bf;
+    --tok-number: #f0a674;
+    --tok-type: #8fbcd4;
+    --tok-function: #a9c1ef;
+    --tok-annotation: #e6c07b;
+    --tok-property: #8fbcd4;
+  }
+}
+
+body { font-size: 17.5px; line-height: 1.75; }
+
+/* The text is set in a serif; the controls around it stay in a sans-serif, which is easier to scan at small sizes. */
+.topbar, .sidebar, .toc, .breadcrumb, .pager, .search-panel, .card-meta, .badge, .tab-list, .tab-btn {
+  font-family: var(--font-ui);
+}
+.prose h2 { border-bottom: 0; font-variant: small-caps; letter-spacing: 0.02em; }
+.prose h2::after {
+  content: ""; display: block; width: 48px; margin-top: 0.3em;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.hero h1, .doc-header h1 { font-weight: 600; letter-spacing: -0.01em; }

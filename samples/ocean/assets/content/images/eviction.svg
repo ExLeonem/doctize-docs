@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-label="Entries move from most to least recently used">
+  <style>
+    .box { fill: #eef2ff; stroke: #4f46e5; stroke-width: 2; }
+    .old { fill: #fee2e2; stroke: #dc2626; }
+    text { font: 600 15px system-ui, sans-serif; fill: #1e1b4b; text-anchor: middle; }
+    .note { font-weight: 400; font-size: 13px; fill: #4b5563; }
+  </style>
+  <rect class="box" x="20" y="30" width="110" height="46" rx="8"/><text x="75" y="59">"one"</text>
+  <rect class="box" x="150" y="30" width="110" height="46" rx="8"/><text x="205" y="59">"three"</text>
+  <rect class="box old" x="420" y="30" width="110" height="46" rx="8"/><text x="475" y="59">"two"</text>
+  <text class="note" x="75" y="102">most recent</text>
+  <text class="note" x="475" y="102">evicted next</text>
+  <path d="M290 53h100m-14-10 14 10-14 10" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

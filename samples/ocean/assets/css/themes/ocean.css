@@ -1,0 +1,91 @@
+/* Doctize theme "ocean": teal and deep blue, cool neutrals and rounder corners.
+ *
+ * Loaded after the built-in theme.css, so it only sets what differs. The dark palette is repeated for the
+ * toggle ([data-theme="dark"]) and for readers who never used it (prefers-color-scheme), like in theme.css.
+ */
+
+:root {
+  --accent: #0e7490;
+  --accent-contrast: #ffffff;
+  --bg: #fbfdfe;
+  --bg-subtle: #eef5f8;
+  --bg-raised: #ffffff;
+  --text: #0f2530;
+  --text-muted: #4c6573;
+  --border: #d6e4ea;
+  --code-bg: #f0f6f9;
+  --tok-comment: #6b8290;
+  --tok-string: #0f766e;
+  --tok-keyword: #1d4ed8;
+  --tok-number: #c2410c;
+  --tok-type: #0e7490;
+  --tok-function: #0369a1;
+  --tok-annotation: #a16207;
+  --tok-property: #0e7490;
+  --radius: 14px;
+  --shadow: 0 12px 40px rgba(8, 47, 73, 0.18);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #38bdf8;
+  --accent-contrast: #04141c;
+  --bg: #0a1720;
+  --bg-subtle: #0f202b;
+  --bg-raised: #132835;
+  --text: #e2eef3;
+  --text-muted: #8fa8b5;
+  --border: #1e3645;
+  --code-bg: #0d1d27;
+  --note: #7dd3fc;
+  --tip: #5eead4;
+  --important: #c4b5fd;
+  --warning: #fbbf24;
+  --caution: #fb7185;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --tok-comment: #6f8b99;
+  --tok-string: #5eead4;
+  --tok-keyword: #7dd3fc;
+  --tok-number: #fdba74;
+  --tok-type: #67e8f9;
+  --tok-function: #93c5fd;
+  --tok-annotation: #fcd34d;
+  --tok-property: #a5f3fc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --accent: #38bdf8;
+    --accent-contrast: #04141c;
+    --bg: #0a1720;
+    --bg-subtle: #0f202b;
+    --bg-raised: #132835;
+    --text: #e2eef3;
+    --text-muted: #8fa8b5;
+    --border: #1e3645;
+    --code-bg: #0d1d27;
+    --note: #7dd3fc;
+    --tip: #5eead4;
+    --important: #c4b5fd;
+    --warning: #fbbf24;
+    --caution: #fb7185;
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    --tok-comment: #6f8b99;
+    --tok-string: #5eead4;
+    --tok-keyword: #7dd3fc;
+    --tok-number: #fdba74;
+    --tok-type: #67e8f9;
+    --tok-function: #93c5fd;
+    --tok-annotation: #fcd34d;
+    --tok-property: #a5f3fc;
+  }
+}
+
+/* A band of the accent under the top bar, and headings in the colour of the sea. */
+.topbar { border-bottom: 2px solid color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.prose h2 { border-bottom-color: color-mix(in srgb, var(--accent) 25%, var(--border)); }
+.hero h1 {
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, var(--text)));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}

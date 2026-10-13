@@ -1,0 +1,87 @@
+/* Doctize theme "forest": moss green on warm off-white; earthy in the dark.
+ *
+ * Loaded after the built-in theme.css, so it only sets what differs. The dark palette is repeated for the
+ * toggle ([data-theme="dark"]) and for readers who never used it (prefers-color-scheme), like in theme.css.
+ */
+
+:root {
+  --accent: #2f6f44;
+  --accent-contrast: #ffffff;
+  --bg: #fbfaf5;
+  --bg-subtle: #f2f0e6;
+  --bg-raised: #fffef9;
+  --text: #1f2a1f;
+  --text-muted: #5c6657;
+  --border: #e1ddcc;
+  --code-bg: #f4f2e8;
+  --tok-comment: #7a806e;
+  --tok-string: #52772b;
+  --tok-keyword: #8a4b12;
+  --tok-number: #b45309;
+  --tok-type: #2f6f44;
+  --tok-function: #3b6e8f;
+  --tok-annotation: #9a6700;
+  --tok-property: #2f6f44;
+  --radius: 8px;
+  --tip: #2f6f44;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #8fd694;
+  --accent-contrast: #11160f;
+  --bg: #11160f;
+  --bg-subtle: #171e14;
+  --bg-raised: #1c2519;
+  --text: #e4e8dc;
+  --text-muted: #9aa58f;
+  --border: #27321f;
+  --code-bg: #151c12;
+  --note: #9ccfd8;
+  --tip: #8fd694;
+  --important: #c9a0dc;
+  --warning: #e9c46a;
+  --caution: #f28482;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  --tok-comment: #7d8a72;
+  --tok-string: #b5d88a;
+  --tok-keyword: #e0a96d;
+  --tok-number: #f4a261;
+  --tok-type: #8fd694;
+  --tok-function: #9ccfd8;
+  --tok-annotation: #e9c46a;
+  --tok-property: #a8dadc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --accent: #8fd694;
+    --accent-contrast: #11160f;
+    --bg: #11160f;
+    --bg-subtle: #171e14;
+    --bg-raised: #1c2519;
+    --text: #e4e8dc;
+    --text-muted: #9aa58f;
+    --border: #27321f;
+    --code-bg: #151c12;
+    --note: #9ccfd8;
+    --tip: #8fd694;
+    --important: #c9a0dc;
+    --warning: #e9c46a;
+    --caution: #f28482;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --tok-comment: #7d8a72;
+    --tok-string: #b5d88a;
+    --tok-keyword: #e0a96d;
+    --tok-number: #f4a261;
+    --tok-type: #8fd694;
+    --tok-function: #9ccfd8;
+    --tok-annotation: #e9c46a;
+    --tok-property: #a8dadc;
+  }
+}
+
+/* The current page is marked by a leaf-coloured bar instead of a filled pill. */
+.sidebar li a.is-current { border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; }
+.card { border-top: 3px solid color-mix(in srgb, var(--accent) 60%, var(--border)); }
